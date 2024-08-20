@@ -4,7 +4,7 @@
 
 本代码库实现了两个主要功能：基于YOLOv8的种类识别和基于孪生神经网络（Siamese Network）的个体识别。YOLOv8负责识别图片中猫和狗的种类，而孪生网络则用于评估两张图片（猫/狗）的相似性。项目中使用的主干特征提取网络为MobileNet V4。
 
-<iframe height=498 width=900 src="https://vdept3.bdstatic.com/mda-qgf6yi1ihghsbkiy/default/h264/1721105679210545762/mda-qgf6yi1ihghsbkiy.mp4?v_from_s=hkapp-haokan-hbe&auth_key=1721480789-0-0-febbace7c7b207b8f55110c9817697ae&bcevod_channel=searchbox_feed&cr=0&cd=0&pd=1&pt=3&logid=0389134717&vid=10581409302711621873&klogid=0389134717&abtest=101830_2-102148_2-17451_2"></iframe>
+<iframe height=498 width=900 src="https://veed.io/view/417e8a95-3356-4b26-9efe-a7b4dec23351"></iframe>
 
 ## 目录
 
@@ -30,18 +30,18 @@
   ```
 - 安装其他需要的包
    ```bash
-  pip install ultralytics==8.2.63 einops==0.8.0 timm==1.0.7
+  pip install ultralytics==8.2.63 einops==0.8.0 timm==1.0.7 tensorboard==2.16.2 
   ```
 
 ### 训练数据集
 
 种类识别数据集下载地址：
-- 链接：[点击此处](#)
-- 提取码：[1234]
+- 链接：[点击此处](https://pan.baidu.com/s/1WKlhHB0g0wUDJntx5bMpmw?pwd=ki6m )
+- 提取码：[ki6m]
 
 个体识别数据集下载地址：
-- 链接：[点击此处](#)
-- 提取码：[1234]
+- 链接：[点击此处](https://pan.baidu.com/s/1hdAHk8rwbzY9LeFaMK7oPg?pwd=w0ph )
+- 提取码：[w0ph ]
 
 我们提供了两个训练好的权重文件用于品种以及个体识别任务存放在\model_data目录下：
 - `cls.pth`：对应于种类识别训练好的权重。
@@ -99,47 +99,33 @@ pip install tkinter
 
 1.模型加载
 
-<img src="C:\Users\27207\AppData\Roaming\Typora\typora-user-images\image-20240801224013255.png" alt="image-20240801224013255" style="zoom: 67%;" />
+<img src=".\pic\1 (1).png" alt="1 (1)" style="zoom:67%;" />
 
 如下图时，则为加载成功
 
-<img src="D:\缓存\WeChat Files\wxid_s7p1qbds35cc22\FileStorage\Temp\b1fa570f946d4058ee7567eab2a7356.png" alt="b1fa570f946d4058ee7567eab2a7356" style="zoom:67%;" />
-
-<img src="D:\缓存\WeChat Files\wxid_s7p1qbds35cc22\FileStorage\Temp\24bec6a71bcd84d72e79c36496be1ea.png" alt="24bec6a71bcd84d72e79c36496be1ea" style="zoom:67%;" />
+<img src=".\pic\1 (5).png" alt="1 (5)" style="zoom:67%;" />
 
 2.个体识别
 
-1）一组个体（两只个体）识别
+1）一组个体（两只个体）识别,预测结果如图
+
+<img src=".\pic\1 (4).png" alt="1 (4)" style="zoom:67%;" />
 
 
 
-<img src="C:\Users\27207\AppData\Roaming\Typora\typora-user-images\image-20240801224354975.png" alt="image-20240801224354975" style="zoom:67%;" />
+2）批量个体识别步骤及预测结果
 
-如图可见预测结果
-
-<img src="C:\Users\27207\AppData\Roaming\Typora\typora-user-images\image-20240801224746371.png" alt="image-20240801224746371" style="zoom:67%;" />
-
-2）批量个体识别
-
-<img src="C:\Users\27207\AppData\Roaming\Typora\typora-user-images\image-20240801225246432.png" alt="image-20240801225246432" style="zoom:67%;" />
-
-预测结果如图
-
-<img src="C:\Users\27207\AppData\Roaming\Typora\typora-user-images\image-20240801225350167.png" alt="image-20240801225350167" style="zoom:67%;" />
+<img src=".\pic\1 (3).png" alt="1 (3)" style="zoom:67%;" />
 
 3.种类识别
 
 1）单个图片的种类识别
 
-<img src="C:\Users\27207\AppData\Roaming\Typora\typora-user-images\image-20240801225916443.png" alt="image-20240801225916443" style="zoom:67%;" />
+<img src=".\pic\1 (6).png" alt="1 (6)" style="zoom:67%;" />
 
 2）批量的种类识别
 
-
-
-<img src="C:\Users\27207\AppData\Roaming\Typora\typora-user-images\image-20240801230236439.png" alt="image-20240801230236439" style="zoom:67%;" />
-
-
+<img src=".\pic\1 (2).png" alt="1 (2)" style="zoom:67%;" />
 
 ### 训练步骤
 
@@ -180,7 +166,7 @@ pip install tkinter
 运行 `train_cls.py` 开始训练：：
 
 ```bash
-python train_cls.py
+python train_cls.py  --data path/to/image
 ```
 
 #### b. 训练自己的相似性比较模型
