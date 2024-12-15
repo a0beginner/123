@@ -17,33 +17,43 @@
 ### 所需环境
 
 - 创建虚拟环境
-   ```bash
+
+  ```bash
   conda create -n {name} python=x.x
   ```
+
 - 激活环境
-   ```bash
+
+  ```bash
   conda activate {name}
   ```
+
 - 安装[pytorch](#https://pytorch.org/get-started/previous-versions/)
-   ```bash
+
+  ```bash
   conda install pytorch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 pytorch-cuda=11.8 -c pytorch -c nvidia
   ```
+
 - 安装其他需要的包
-   ```bash
+
+  ```bash
   pip install ultralytics==8.2.63 einops==0.8.0 timm==1.0.7 tensorboard==2.16.2 
   ```
 
 ### 训练数据集
 
 种类识别数据集下载地址：
+
 - 链接：[点击此处](https://pan.baidu.com/s/1WKlhHB0g0wUDJntx5bMpmw?pwd=ki6m )
 - 提取码：[ki6m]
 
 个体识别数据集下载地址：
+
 - 链接：[点击此处](https://pan.baidu.com/s/1hdAHk8rwbzY9LeFaMK7oPg?pwd=w0ph )
 - 提取码：[w0ph ]
 
 我们提供了两个训练好的权重文件用于品种以及个体识别任务存放在\model_data目录下：
+
 - `cls.pth`：对应于种类识别训练好的权重。
 - `ind.pth`：对应于个体识别训练好的权重。
 
@@ -70,10 +80,13 @@
 #### b. 使用两张图像评估个体识别模型（无标签）
 
 运行 `predict_ind.py`，依次输入两个图片的位置：
+
 ```bash
 python predict_ind.py  --model_path /path/to/your/model_weights.pth --image1_path path/to/image1.jpg --image2_path path/to/image2.jpg
 ```
+
 示例：
+
 ```bash
 python predict_ind.py --model_path D:\Siamese\logs\best_epoch_weights.pth  --image1_path D:\img\test\1.png --image2_path D:\img\test\2.png  
 ```
@@ -81,10 +94,13 @@ python predict_ind.py --model_path D:\Siamese\logs\best_epoch_weights.pth  --ima
 #### c. 批量图像评估个体识别模型（带标签）
 
 运行 `predict_ind_Batch.py`进行批量预测： 所需标签文件格式见后文  [训练步骤b.1.(2)](###b. 训练自己的相似性比较模型)
+
 ```bash
 python predict_ind_Batch.py --model_path /path/to/your/model_weights.pth  --file_path path/to/test.txt --test_path path/to/test 
 ```
+
 示例：
+
 ```bash
 python predict_ind_Batch.py  --model_path D:\Siamese\logs\best_epoch_weights.pth  --file_path D:\Siamese\img\test.txt --test_path D:\Siamese\img\test 
 ```
@@ -194,9 +210,9 @@ ImgsUnit-/
 （2）标签文件 `lable.txt`：
 
    ```bash
-   img1.png,img2.png,True
-   img3.png,img4.png,False
-   ……
+img1.png,img2.png,True
+img3.png,img4.png,False
+……
    ```
 
 2.训练步骤：
